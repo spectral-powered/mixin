@@ -1,4 +1,4 @@
-name: SpectralPowered Mixin - CI (push)
+name: Build
 
 on:
   push:
