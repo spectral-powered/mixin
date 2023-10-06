@@ -12,7 +12,7 @@ plugins {
 
 rootProject.name = "mixin"
 
-includeBuild("gradle-plugin")
+include(":gradle-plugin")
 include(":asm")
 include(":injector")
 include(":annotations")

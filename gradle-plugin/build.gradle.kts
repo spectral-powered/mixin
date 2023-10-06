@@ -4,34 +4,26 @@ plugins {
     `java-library`
     `java-gradle-plugin`
     `maven-publish`
-}
-
-group = "org.spectralpowered.mixin"
-version = "1.0.0"
-
-tasks.wrapper {
-    gradleVersion = "8.2.1"
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven(url = "https://maven.spectralpowered.org")
+    id("com.gradle.plugin-publish") version "1.1.0"
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
-    implementation("org.spectralpowered.mixin:mixin-injector:1.0.0")
+    implementation(project(":injector"))
 }
 
 gradlePlugin {
+    website.set("https://spectralpowered.org/")
+    vcsUrl.set("https://github.com/spectral-powered/mixin/")
     plugins {
-        create("gradle-plugin") {
-            id = "org.spectralpowered.mixin"
+        create("mixin") {
+            id = "org.spectralpowered.mixin.plugin"
             version = project.version.toString()
             implementationClass = "org.spectralpowered.mixin.plugin.MixinPlugin"
+            displayName = "Spectral Powered Mixin Plugin"
+            description = "Gradle plugin for the Spectral Powered mixin framework."
+            tags = listOf("spectralpowered", "mixin", "injector")
         }
     }
 }
@@ -44,18 +36,18 @@ val sourcesJar = tasks.create<Jar>("sourcesJar") {
 publishing {
     repositories {
         mavenLocal()
-        maven(url = "https://maven.spectralpowered.org") {
+        maven(url = "https://maven.spectralpowered.org/mixin") {
             credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
+                username = System.getenv("MAVEN_USERNAME") ?: ""
+                password = System.getenv("MAVEN_PASSWORD") ?: ""
             }
         }
     }
 
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("mixin") {
             groupId = project.group.toString()
-            artifactId = "mixin-gradle-plugin"
+            artifactId = "mixin-plugin"
             version = project.version.toString()
             from(components["java"])
             artifact(sourcesJar)
