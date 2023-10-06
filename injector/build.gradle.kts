@@ -1,12 +1,14 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     `maven-publish`
+    `java-library`
 }
 
 dependencies {
-    implementation(project(":asm"))
-    implementation(project(":annotations"))
+    api(project(":asm"))
+    api(project(":annotations"))
     implementation(libs.bundles.kotlin)
+    api("com.github.demidenko05:a-javabeans:_")
 }
 
 val sourcesJar = tasks.create<Jar>("sourcesJar") {

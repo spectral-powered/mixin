@@ -87,11 +87,13 @@ open class MixinExtension (private val project: Project){
 
             tasks.named("jar", Jar::class.java) {
                 dependsOn(injectTask)
+                duplicatesStrategy = DuplicatesStrategy.EXCLUDE
                 from(buildDir.resolve("libs/target.injected.jar"))
             }
 
             tasks.named("processResources", ProcessResources::class.java) {
                 dependsOn(injectTask)
+                duplicatesStrategy = DuplicatesStrategy.EXCLUDE
                 from(buildDir.resolve("libs/target.injected.jar"))
             }
         }

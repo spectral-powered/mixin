@@ -1,5 +1,5 @@
 plugins {
-    id("org.spectralpowered.mixin") version "1.0.0"
+    //id("org.spectralpowered.mixin") version "1.0.0"
     application
 }
 
@@ -9,10 +9,12 @@ repositories {
 }
 
 dependencies {
-    mixin(project(":test-app:mixins"))
-    mixinApi(project(":test-app:api"))
-    inject(project(":test-app:target"))
-    implementation("org.spectralpowered.mixin:mixin-injector:1.0.0")
+    //mixin(project(":test-app:mixins"))
+    //mixinApi(project(":test-app:api"))
+    //inject(project(":test-app:target"))
+    implementation(project(":injector"))
+    implementation(project(":annotations"))
+    implementation(project(":test-app:api"))
 }
 
 application {
