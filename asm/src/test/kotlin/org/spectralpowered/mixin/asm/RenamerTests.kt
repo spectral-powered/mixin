@@ -58,6 +58,7 @@ class RenamerTests {
         assertNotNull(group.getClass("class1"))
 
         val out = File("tmp.jar")
+        out.deleteOnExit()
 
         group.writeJar(out)
         assertTrue { group.classes.size == 4 }

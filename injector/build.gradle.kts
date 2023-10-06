@@ -5,8 +5,8 @@ plugins {
 }
 
 dependencies {
-    api(project(":asm"))
-    api(project(":annotations"))
+    implementation(project(":asm"))
+    implementation(project(":annotations"))
     implementation(libs.bundles.kotlin)
     api("com.github.demidenko05:a-javabeans:_")
 }
@@ -19,12 +19,18 @@ val sourcesJar = tasks.create<Jar>("sourcesJar") {
 publishing {
     repositories {
         mavenLocal()
+        maven(url = "https://maven.spectralpowered.org") {
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
     }
 
     publications {
         create<MavenPublication>("maven") {
             groupId = project.group.toString()
-            artifactId = "mixin-${project.name}"
+            artifactId = "mixin-injector"
             version = project.version.toString()
             from(components["java"])
             artifact(sourcesJar)

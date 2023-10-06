@@ -78,8 +78,8 @@ open class MixinExtension (private val project: Project){
                 archiveClassifier.set("")
             }
 
-            val injectTask = tasks.register("inject", InjectTask::class.java) {
-                group = "build"
+            val injectTask = tasks.register("injectMixins", InjectTask::class.java) {
+                group = "mixin"
                 dependsOn(mixinJarTask)
                 dependsOn(mixinApiJarTask)
                 dependsOn(targetJarTask)

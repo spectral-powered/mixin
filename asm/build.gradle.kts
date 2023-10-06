@@ -35,17 +35,25 @@ val sourcesJar = tasks.create<Jar>("sourcesJar") {
 }
 
 publishing {
-    repositories {
-        mavenLocal()
-    }
+    publishing {
+        repositories {
+            mavenLocal()
+            maven(url = "https://maven.spectralpowered.org") {
+                credentials {
+                    username = System.getenv("MAVEN_USERNAME")
+                    password = System.getenv("MAVEN_PASSWORD")
+                }
+            }
+        }
 
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = project.group.toString()
-            artifactId = "mixin-${project.name}"
-            version = project.version.toString()
-            from(components["java"])
-            artifact(sourcesJar)
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = project.group.toString()
+                artifactId = "mixin-asm"
+                version = project.version.toString()
+                from(components["java"])
+                artifact(sourcesJar)
+            }
         }
     }
 }

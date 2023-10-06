@@ -9,7 +9,7 @@ tasks.wrapper {
 
 allprojects {
     group = "org.spectralpowered"
-    version = "1.0.0"
+    version = "0.1.0-pre1"
 
     repositories {
         mavenLocal()
@@ -31,7 +31,12 @@ val sourcesJar = tasks.create<Jar>("sourcesJar") {
 publishing {
     repositories {
         mavenLocal()
-        maven(url = "https://maven.spectralpowered.org")
+        maven(url = "https://maven.spectralpowered.org") {
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
     }
 
     publications {
