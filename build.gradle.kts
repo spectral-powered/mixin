@@ -14,7 +14,7 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven(url = "https://maven.spectralpowered.org/")
+        maven(url = "https://maven.spectralpowered.org")
     }
 }
 
@@ -31,7 +31,7 @@ val sourcesJar = tasks.create<Jar>("sourcesJar") {
 publishing {
     repositories {
         mavenLocal()
-        maven(url = "https://maven.spectralpowered.org/mixin") {
+        maven(url = "https://maven.spectralpowered.org") {
             credentials {
                 username = System.getenv("MAVEN_USERNAME")
                 password = System.getenv("MAVEN_PASSWORD")
