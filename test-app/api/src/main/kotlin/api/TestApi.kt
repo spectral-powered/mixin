@@ -1,0 +1,6 @@
+package api
+
+interface TestApi {
+
+
+}
