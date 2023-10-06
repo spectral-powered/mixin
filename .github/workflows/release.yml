@@ -1,14 +1,12 @@
-name: SpectralPowered Mixin - CI (push)
+name: SpectralPowered Mixin - CI (release)
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [created]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    name: Build
     steps:
       - uses: actions/checkout@v4
       - name: Make gradlew executable
@@ -19,5 +17,9 @@ jobs:
           distribution: 'adopt'
           java-version: 11
           cache: 'gradle'
-      - name: Building
-        run: ./gradlew build --console=plain
+      - name: Publish
+        run: ./gradlew publish
+        env:
+          MAVEN_USERNAME: ${{ secrets.GITHUB_ACTOR }}
+          MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
