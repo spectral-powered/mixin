@@ -9,7 +9,7 @@
 <a target="_blank" href="https://github.com/spectral-powered/mixin/packages"><img src="https://img.shields.io/github/v/tag/spectral-powered/mixin?label=maven
 "></a>
 <a target="_blank" href="https://plugins.gradle.org/plugin/org.spectralpowered.mixin.plugin"><img src=""></a>
-<a target="_blank" href="https://github.com/spectral-powered/mixin/"><img src="https://img.shields.io/github/license/spectral-powered/mixin
+<a target="_blank" href="https://github.com/spectral-powered/mixin/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/spectral-powered/mixin
 "></a>
 <a target="_blank" href="https://discord.gg/x365VCSvHZ"><img src="https://img.shields.io/discord/747318960009248828?logo=discord&logoColor=ffffff&label=discord&labelColor=discord&color=5662f6
 "></a>
