@@ -1,9 +1,7 @@
-name: SpectralPowered Mixin - CI (push)
+name: Build
 
 on:
   push:
-    branches:
-      - master
 
 jobs:
   build:

@@ -15,20 +15,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-kotlin {
-    jvmToolchain {
-        vendor.set(JvmVendorSpec.AZUL)
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
-}
-
-java {
-    toolchain {
-        vendor.set(JvmVendorSpec.AZUL)
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
-}
-
 val sourcesJar = tasks.create<Jar>("sourcesJar") {
     from(sourceSets["main"].allJava)
     archiveClassifier.set("sources")

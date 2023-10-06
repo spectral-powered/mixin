@@ -42,7 +42,7 @@ pluginManagement {
 Add to `build.gradle`
 ```kotlin
 plugins {
-    id("org.spectralpowered.mixin.plugin") version "0.1.0-pre1"
+    id("org.spectralpowered.mixin.plugin") version "0.1.0"
 }
 
 repositories {
@@ -69,12 +69,12 @@ Mixin dependencies:
 ```kotlin
 dependencies {
     // Includes Everything Normally Needed
-    implementation("org.spectralpowered:mixin:0.1.0-pre1")
+    implementation("org.spectralpowered:mixin:0.1.0")
     
     // Explicit Mixin modules 
-    implementation("org.spectralpowered:mixin-injector:0.1.0-pre1")
-    implementation("org.spectralpowered:mixin-annotations:0.1.0-pre1")
-    implementation("org.spectralpowered:mixin-asm:0.1.0-pre1")
+    implementation("org.spectralpowered:mixin-injector:0.1.0")
+    implementation("org.spectralpowered:mixin-annotations:0.1.0")
+    implementation("org.spectralpowered:mixin-asm:0.1.0")
 }
 ```
 

@@ -9,7 +9,7 @@ tasks.wrapper {
 
 allprojects {
     group = "org.spectralpowered"
-    version = "0.1.0-pre1"
+    version = "0.1.0"
 
     repositories {
         mavenLocal()
